@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Color Filter and Flip</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            margin-top: 10px;
+            display: block;
+            font-weight: bold;
+        }
+        input, select, button {
+            margin-top: 5px;
+            padding: 8px;
+            width: 100%;
+            max-width: 300px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload an Image, Apply Filters, and Flip</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <label for="image">Choose Image:</label>
+        <input type="file" name="image" required>
+
+        <label for="r">Red (0-255):</label>
+        <input type="number" name="r" min="0" max="255" value="0">
+
+        <label for="g">Green (0-255):</label>
+        <input type="number" name="g" min="0" max="255" value="0">
+
+        <label for="b">Blue (0-255):</label>
+        <input type="number" name="b" min="0" max="255" value="0">
+
+        <label for="flip">Flip Option:</label>
+        <select name="flip">
+            <option value="-1" selected>No Flip</option>
+            <option value="0">Vertical Flip</option>
+            <option value="1">Horizontal Flip</option>
+        </select>
+
+        <button type="submit">Upload and Process</button>
+    </form>
+</body>
+</html>
